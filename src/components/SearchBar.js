@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearcBar extends React.Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,4 +32,4 @@ class SearcBar extends React.Component {
   }
 }
 
-export default SearcBar;
+export default SearchBar;
