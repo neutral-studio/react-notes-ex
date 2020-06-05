@@ -14,7 +14,7 @@ class App extends React.Component {
     let note = this.state.note;
     note.unshift(value);
 
-    this.setState({ note: note, input: '' });
+    this.setState({ note: note });
   };
 
   render = () => {
