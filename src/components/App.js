@@ -7,28 +7,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { note: [], input: '' };
+    this.state = { note: [] };
   }
 
-  aggiungiNota = () => {
+  aggiungiNota = value => {
     let note = this.state.note;
-    note.push(this.state.input);
+    note.unshift(value);
 
     this.setState({ note: note, input: '' });
-  };
-
-  aggiornaInput = value => {
-    this.setState({ input: value });
   };
 
   render = () => {
     return (
       <div className="container my-4">
-        <SearchBar
-          aggiungiNota={this.aggiungiNota}
-          aggiornaInput={this.aggiornaInput}
-          input={this.state.input}
-        />
+        <SearchBar aggiungiNota={this.aggiungiNota} />
         <hr />
         <ListaNote lista={this.state.note} />
       </div>

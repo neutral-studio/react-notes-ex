@@ -1,9 +1,5 @@
 import React from 'react';
 
-export default ({ titolo, numeroRandom }) => {
-  return (
-    <li className="list-group-item" key={numeroRandom}>
-      {titolo}
-    </li>
-  );
+export default ({ titolo }) => {
+  return <li className="list-group-item">{titolo}</li>;
 };

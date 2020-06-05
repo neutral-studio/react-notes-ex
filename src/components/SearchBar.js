@@ -1,25 +1,35 @@
 import React from 'react';
 
-export default props => {
-  return (
-    <div className="form-group">
-      <div className="row">
-        <div className="col-8">
-          <input
-            className="form-control"
-            onChange={({ target: { value } }) => props.aggiornaInput(value)}
-            value={props.input}
-          ></input>
-        </div>
-        <div className="col">
-          <button
-            className="btn btn-primary shadow"
-            onClick={props.aggiungiNota}
-          >
-            Aggiungi
-          </button>
-        </div>
+class SearcBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { input: '' };
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.aggiungiNota, false);
+  }
+
+  aggiungiNota = e => {
+    if (((e && e.keyCode === 13) || e.button) && this.state.input !== '') {
+      this.props.aggiungiNota(this.state.input);
+      this.setState({ input: '' });
+    }
+  };
+
+  render() {
+    return (
+      <div className="form-group">
+        <input
+          className="form-control"
+          onChange={({ target: { value } }) => this.setState({ input: value })}
+          value={this.state.input}
+          placeholder="La tua nota"
+        ></input>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
+export default SearcBar;
